@@ -21,13 +21,19 @@
 </div>
 
 <script>
-const cart = JSON.parse(localStorage.getItem("cart") || "[]");
+let cart = JSON.parse(localStorage.getItem("cart") || "[]");
 const costPerKg = 5; // dummy rate per kg
 
 function displayCart() {
     const list = document.getElementById("cartList");
     list.innerHTML = "";
     let totalWeight = 0;
+
+    if (cart.length === 0) {
+        list.innerHTML = "<p>No shipments in cart.</p>";
+        document.getElementById("totalCost").textContent = "";
+        return;
+    }
 
     cart.forEach((item, idx) => {
         totalWeight += item.weight;
@@ -37,6 +43,7 @@ function displayCart() {
             <p><b>Supplier Phone:</b> ${item.supplierPhone}</p>
             <p><b>Instagram:</b> ${item.supplierInstagram}</p>
             <p><b>Weight:</b> ${item.weight} kg</p>
+            <button style="background-color:#333;color:#00ff00;" onclick="deleteItem(${idx})">Delete</button>
         `;
         list.appendChild(div);
     });
@@ -46,11 +53,33 @@ function displayCart() {
         `Estimated Shipping Cost: $${estimatedCost.toFixed(2)}`;
 }
 
+function deleteItem(index) {
+    if (confirm("Remove this shipment from the cart?")) {
+        cart.splice(index, 1);
+        localStorage.setItem("cart", JSON.stringify(cart));
+        displayCart();
+        updateCartCounter();
+    }
+}
+
 function confirmOrder() {
+    if (cart.length === 0) {
+        alert("Your cart is empty.");
+        return;
+    }
+    // After "payment", empty cart
+    localStorage.removeItem("cart");
     window.location.href = "confirmation.html";
 }
 
+// Update cart counter in header
+function updateCartCounter() {
+    const counter = document.querySelector(".cart-counter");
+    counter.textContent = cart.length;
+}
+
 displayCart();
+updateCartCounter();
 </script>
 </body>
 </html>
