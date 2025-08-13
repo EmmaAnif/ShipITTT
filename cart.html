@@ -1,0 +1,56 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>Cart - Baru</title>
+    <link rel="stylesheet" href="style.css">
+</head>
+<body>
+<header>
+    <h1>Baru</h1>
+    <nav>
+        <a href="index.html">Home</a>
+        <a href="shipments.html">Add Shipment</a>
+    </nav>
+</header>
+
+<div class="container">
+    <h2>Your Shipments</h2>
+    <div id="cartList"></div>
+    <h3 id="totalCost"></h3>
+    <button onclick="confirmOrder()">Make Payment</button>
+</div>
+
+<script>
+const cart = JSON.parse(localStorage.getItem("cart") || "[]");
+const costPerKg = 5; // dummy rate per kg
+
+function displayCart() {
+    const list = document.getElementById("cartList");
+    list.innerHTML = "";
+    let totalWeight = 0;
+
+    cart.forEach((item, idx) => {
+        totalWeight += item.weight;
+        const div = document.createElement("div");
+        div.className = "card";
+        div.innerHTML = `
+            <p><b>Supplier Phone:</b> ${item.supplierPhone}</p>
+            <p><b>Instagram:</b> ${item.supplierInstagram}</p>
+            <p><b>Weight:</b> ${item.weight} kg</p>
+        `;
+        list.appendChild(div);
+    });
+
+    const estimatedCost = totalWeight * costPerKg;
+    document.getElementById("totalCost").textContent =
+        `Estimated Shipping Cost: $${estimatedCost.toFixed(2)}`;
+}
+
+function confirmOrder() {
+    window.location.href = "confirmation.html";
+}
+
+displayCart();
+</script>
+</body>
+</html>
