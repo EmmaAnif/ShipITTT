@@ -1,0 +1,28 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>Confirmation - Baru</title>
+    <link rel="stylesheet" href="style.css">
+</head>
+<body>
+<header>
+    <h1>Baru</h1>
+</header>
+
+<div class="container">
+    <h2>Order Received</h2>
+    <p>Thank you for using Baru. Your shipment request has been recorded.</p>
+    <p>Final cost will be calculated after pickup based on actual weight.</p>
+    <div id="loginReminder"></div>
+    <a href="index.html" class="link-btn">Back to Home</a>
+</div>
+
+<script>
+const user = JSON.parse(localStorage.getItem("user") || "null");
+if (!user) {
+    document.getElementById("loginReminder").innerHTML =
+        `<p>Please <a href="login.html" style="color:#00ff88">log in</a> to save your details for future shipments.</p>`;
+}
+</script>
+</body>
+</html>
