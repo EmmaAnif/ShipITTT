@@ -1,7 +1,7 @@
 /* Global Styles */
 body {
     font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
-    background-color: #000; /* Pure black background */
+    background-color: #000; /* black background */
     color: #e0e0e0;
     margin: 0;
     padding: 0;
@@ -10,23 +10,23 @@ body {
 
 /* Header */
 header {
-    background-color: #111; /* dark grey-black */
+    background-color: #111; /* dark header */
     padding: 10px 15px;
     text-align: center;
 }
 
 header h1 {
-    color: #00ff88; /* green accent */
-    font-size: 1.5rem;
+    color: #00ff00; /* neon green, exactly like yesterday */
+    font-size: 1.6rem;
     margin: 0;
 }
 
 /* Navigation */
 nav a {
-    color: #00ff88;
+    color: #00ff00;
     text-decoration: none;
     margin: 0 8px;
-    font-size: 0.9rem;
+    font-size: 0.95rem;
 }
 
 nav a:hover {
@@ -36,13 +36,13 @@ nav a:hover {
 /* Container */
 .container {
     padding: 15px;
-    max-width: 500px;
+    max-width: 1100px;
     margin: auto;
 }
 
 /* Buttons */
 button {
-    background-color: #00ff88;
+    background-color: #00ff00;
     color: #000;
     padding: 10px 14px;
     border: none;
@@ -54,14 +54,14 @@ button {
 }
 
 button:hover {
-    background-color: #00cc6a;
+    background-color: #00cc00;
 }
 
 /* Inputs */
 input {
     width: 100%;
-    padding: 8px;
-    margin-top: 6px;
+    padding: 10px;
+    margin-top: 8px;
     border-radius: 6px;
     border: none;
     background-color: #1a1a1a;
@@ -79,7 +79,7 @@ input {
 
 /* Cart Counter */
 .cart-counter {
-    background-color: #00ff88;
+    background-color: #00ff00;
     color: #000;
     padding: 3px 7px;
     border-radius: 50%;
@@ -87,11 +87,33 @@ input {
     vertical-align: super;
 }
 
+/* Two-column premium layout for login page */
+.premium-layout {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 20px;
+}
+
+.premium-left, .premium-right {
+    flex: 1 1 300px;
+    min-width: 280px;
+}
+
+.premium-left h2 {
+    font-size: 1.8rem;
+    color: #00ff00;
+}
+
+.premium-left p {
+    margin-top: 15px;
+    font-size: 1rem;
+}
+
 /* Links in buttons style */
 .link-btn {
     display: inline-block;
     text-align: center;
-    background-color: #00ff88;
+    background-color: #00ff00;
     color: #000;
     padding: 10px 14px;
     border-radius: 6px;
@@ -101,5 +123,5 @@ input {
 }
 
 .link-btn:hover {
-    background-color: #00cc6a;
+    background-color: #00cc00;
 }
