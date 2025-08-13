@@ -1,0 +1,58 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>Add Shipment - Baru</title>
+    <link rel="stylesheet" href="style.css">
+</head>
+<body>
+<header>
+    <h1>Baru</h1>
+    <nav>
+        <a href="index.html">Home</a>
+        <a href="cart.html">Cart <span class="cart-counter" id="cartCount">0</span></a>
+    </nav>
+</header>
+
+<div class="container">
+    <h2 id="welcomeText">Add Shipment</h2>
+
+    <div class="card">
+        <input type="text" id="supplierPhone" placeholder="Supplier Phone Number">
+        <input type="text" id="supplierInstagram" placeholder="Supplier Instagram Handle">
+        <input type="number" id="weight" placeholder="Estimated Weight (kg)">
+        <button onclick="addShipment()">Add to Cart</button>
+    </div>
+</div>
+
+<script>
+const user = JSON.parse(localStorage.getItem("user") || "null");
+if (user) {
+    document.getElementById("welcomeText").textContent = `Hi ${user.name}, Add Shipment`;
+}
+
+function addShipment() {
+    const supplierPhone = document.getElementById("supplierPhone").value.trim();
+    const supplierInstagram = document.getElementById("supplierInstagram").value.trim();
+    const weight = parseFloat(document.getElementById("weight").value);
+
+    if (!supplierPhone || !supplierInstagram || isNaN(weight)) {
+        alert("Please fill in all fields.");
+        return;
+    }
+
+    const cart = JSON.parse(localStorage.getItem("cart") || "[]");
+    cart.push({ supplierPhone, supplierInstagram, weight });
+    localStorage.setItem("cart", JSON.stringify(cart));
+
+    document.getElementById("cartCount").textContent = cart.length;
+
+    document.getElementById("supplierPhone").value = "";
+    document.getElementById("supplierInstagram").value = "";
+    document.getElementById("weight").value = "";
+}
+
+document.getElementById("cartCount").textContent =
+    JSON.parse(localStorage.getItem("cart") || "[]").length;
+</script>
+</body>
+</html>
