@@ -1,0 +1,31 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>Baru - African Trade Consolidation</title>
+    <link rel="stylesheet" href="style.css">
+</head>
+<body>
+<header>
+    <h1>Baru</h1>
+    <nav>
+        <a href="login.html">Login</a>
+        <a href="shipments.html">Shipments</a>
+        <a href="cart.html">Cart <span class="cart-counter" id="cartCount">0</span></a>
+    </nav>
+</header>
+
+<div class="container">
+    <h2>Connecting Africa to the World</h2>
+    <p>Baru helps African exporters and global buyers by consolidating shipments, reducing costs, and improving logistics efficiency. 
+    Whether you're a small business or an individual sending goods abroad, Baru simplifies the process from Lagos to anywhere in the world.</p>
+    <p>Get started today—sign in or add a shipment directly.</p>
+    <a href="login.html" class="link-btn">Login / Sign Up</a>
+    <a href="shipments.html" class="link-btn">Add Shipment</a>
+</div>
+
+<script>
+    document.getElementById("cartCount").textContent =
+        JSON.parse(localStorage.getItem("cart") || "[]").length;
+</script>
+</body>
+</html>
