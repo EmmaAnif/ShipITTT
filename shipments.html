@@ -21,6 +21,7 @@
         <input type="text" id="supplierInstagram" placeholder="Supplier Instagram Handle">
         <input type="number" id="weight" placeholder="Estimated Weight (kg)">
         <button onclick="addShipment()">Add to Cart</button>
+        <button onclick="goToCheckout()" style="background-color:#333;color:#00ff00;">Proceed to Checkout</button>
     </div>
 </div>
 
@@ -46,11 +47,17 @@ function addShipment() {
 
     document.getElementById("cartCount").textContent = cart.length;
 
+    // Clear form fields for next shipment
     document.getElementById("supplierPhone").value = "";
     document.getElementById("supplierInstagram").value = "";
     document.getElementById("weight").value = "";
 }
 
+function goToCheckout() {
+    window.location.href = "cart.html";
+}
+
+// Initialize cart counter
 document.getElementById("cartCount").textContent =
     JSON.parse(localStorage.getItem("cart") || "[]").length;
 </script>
