@@ -1,0 +1,34 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>Login - Baru</title>
+    <link rel="stylesheet" href="style.css">
+</head>
+<body>
+<header>
+    <h1>Baru</h1>
+</header>
+
+<div class="container">
+    <h2>Login / Sign Up</h2>
+    <input type="text" id="name" placeholder="Full Name">
+    <input type="text" id="address" placeholder="Delivery Address">
+    <button onclick="saveLogin()">Continue</button>
+</div>
+
+<script>
+function saveLogin() {
+    const name = document.getElementById("name").value.trim();
+    const address = document.getElementById("address").value.trim();
+
+    if (!name || !address) {
+        alert("Please enter your name and address.");
+        return;
+    }
+
+    localStorage.setItem("user", JSON.stringify({ name, address }));
+    window.location.href = "shipments.html";
+}
+</script>
+</body>
+</html>
