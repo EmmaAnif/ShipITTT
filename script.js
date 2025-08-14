@@ -1,10 +1,10 @@
 // ------------------------
-// Session Cart Initialization
+// Initialize Cart for the Session
 // ------------------------
-if (!sessionStorage.getItem("sessionCartInitialized")) {
-    localStorage.removeItem("cart"); // clear cart at new session
-    sessionStorage.setItem("sessionCartInitialized", "true");
+if (!localStorage.getItem("cart")) {
+    localStorage.setItem("cart", JSON.stringify([]));
 }
+sessionStorage.setItem("sessionCartInitialized", "true");
 
 // ------------------------
 // Cart Counter
@@ -26,6 +26,7 @@ document.addEventListener("DOMContentLoaded", () => {
         });
     }
     updateCartCounter();
+    updateShipmentWelcome();
 });
 
 // ------------------------
@@ -115,7 +116,7 @@ function displayCart() {
         cartList.appendChild(div);
     });
 
-    const estimatedCost = totalWeight * 5; // dummy cost per kg
+    const estimatedCost = totalWeight * 5; // example cost calculation
     const totalCost = document.getElementById("totalCost");
     if (totalCost) totalCost.textContent = `Estimated Shipping Cost: $${estimatedCost.toFixed(2)}`;
 }
@@ -136,8 +137,8 @@ function confirmOrder() {
         alert("Your cart is empty.");
         return;
     }
-    // Empty cart after payment
-    localStorage.removeItem("cart");
+    // Empty cart after “payment”
+    localStorage.setItem("cart", JSON.stringify([]));
     window.location.href = "confirmation.html";
 }
 
