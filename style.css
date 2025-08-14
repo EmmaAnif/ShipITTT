@@ -1,4 +1,4 @@
-/* Global Styles */
+/* -------------------- Global Styles -------------------- */
 html, body {
     height: 100%;
     margin: 0;
@@ -6,48 +6,58 @@ html, body {
     font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
     background-color: #000;
     color: #e0e0e0;
+    box-sizing: border-box;
 }
 
-/* Header */
+/* -------------------- Header & Navigation -------------------- */
 header {
     background-color: #111;
     display: flex;
+    flex-direction: column; /* stack logo and nav vertically */
     align-items: center;
-    justify-content: center;
     padding: 12px 0;
 }
 
 header h1 {
     color: #00ff88; /* softened green */
-    font-size: 1.6rem;
+    font-size: 2rem; /* prominent logo */
     cursor: pointer;
-    margin: 0;
+    margin: 0 0 10px 0; /* space below logo */
 }
 
-/* Navigation */
+nav {
+    display: flex;
+    gap: 20px;
+    justify-content: center;
+    flex-wrap: wrap;
+}
+
 nav a {
     color: #00ff88;
     text-decoration: none;
-    margin: 0 8px;
-    font-size: 0.95rem;
+    font-size: 1rem;
+    padding: 6px 12px;
+    border-radius: 6px;
+    background-color: #111; /* nav button dark background */
 }
 
 nav a:hover {
-    text-decoration: underline;
+    background-color: #222;
+    text-decoration: none;
 }
 
-/* Container */
+/* -------------------- Container -------------------- */
 .container {
     padding: 15px;
     max-width: 500px;
     margin: 0 auto;
     display: flex;
     flex-direction: column;
-    justify-content: flex-start;
-    min-height: calc(100vh - 60px);
+    justify-content: center;   /* vertical centering */
+    min-height: 100vh;         /* full viewport height */
 }
 
-/* Buttons */
+/* -------------------- Buttons -------------------- */
 button, .link-btn {
     background-color: #00ff88;
     color: #000;
@@ -65,7 +75,7 @@ button:hover, .link-btn:hover {
     background-color: #00cc6a;
 }
 
-/* Inputs */
+/* -------------------- Inputs -------------------- */
 input {
     width: 100%;
     padding: 12px;
@@ -77,7 +87,7 @@ input {
     font-size: 1rem;
 }
 
-/* Card Layout */
+/* -------------------- Card Layout -------------------- */
 .card {
     background-color: #111;
     border-radius: 8px;
@@ -85,7 +95,7 @@ input {
     margin-bottom: 12px;
 }
 
-/* Cart Counter */
+/* -------------------- Cart Counter -------------------- */
 .cart-counter {
     background-color: #00ff88;
     color: #000;
@@ -95,11 +105,14 @@ input {
     vertical-align: super;
 }
 
-/* Premium split layout (login page) */
+/* -------------------- Premium Split Layout (Login Page) -------------------- */
 .premium-layout {
     display: flex;
     flex-wrap: wrap;
     gap: 20px;
+    align-items: center;        /* vertical centering for left/right */
+    justify-content: center;    /* horizontal centering */
+    min-height: 100vh;          /* full viewport height */
 }
 
 .premium-left, .premium-right {
@@ -115,4 +128,27 @@ input {
 .premium-left p {
     margin-top: 15px;
     font-size: 1rem;
+}
+
+/* -------------------- Mobile Optimization -------------------- */
+@media (max-width: 500px) {
+    .container {
+        padding: 10px;
+    }
+    header h1 {
+        font-size: 1.8rem;
+    }
+    nav a {
+        font-size: 0.95rem;
+        padding: 5px 10px;
+    }
+    .premium-left h2 {
+        font-size: 1.5rem;
+    }
+    .premium-left p {
+        font-size: 0.95rem;
+    }
+    input, button, .link-btn {
+        font-size: 0.95rem;
+    }
 }
