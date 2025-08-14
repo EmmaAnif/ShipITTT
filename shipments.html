@@ -1,33 +1,71 @@
 <!DOCTYPE html>
-<html>
+<html lang="en">
 <head>
-    <title>Add Shipment - Baru</title>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Baru - Add Shipments</title>
     <link rel="stylesheet" href="style.css">
 </head>
 <body>
+
 <header>
-    <h1>Baru</h1>
+    <h1 onclick="window.location.href='index.html'">Baru</h1>
     <nav>
-        <a href="index.html">Home</a>
-        <a href="cart.html">Cart <span class="cart-counter" id="cartCount">0</span></a>
+        <a href="login.html">Login / Signup</a>
+        <a href="shipments.html">Add Shipment</a>
+        <a href="checkout.html">Cart <span id="cart-counter">0</span></a>
     </nav>
 </header>
 
-<div class="container">
-    <h2 id="welcomeText">Add Shipment</h2>
+<main class="container">
+    <h2>Add Shipments</h2>
 
-    <div class="card">
-        <input type="text" id="supplierPhone" placeholder="Supplier Phone Number">
-        <input type="text" id="supplierInstagram" placeholder="Supplier Instagram Handle">
-        <input type="number" id="weight" placeholder="Estimated Weight (kg)">
-        <button onclick="addShipment()">Add to Cart</button>
-        <button onclick="goToCheckout()" style="background-color:#333;color:#00ff88;">Proceed to Checkout</button>
+    <!-- Shipment Form -->
+    <div class="shipment-form">
+        <input type="text" id="supplier-name" placeholder="Supplier Name" />
+        <input type="text" id="supplier-phone" placeholder="Supplier Phone Number" />
+        <input type="text" id="supplier-instagram" placeholder="Supplier Instagram Handle" />
+        <input type="number" id="shipment-weight" placeholder="Estimated Weight (kg)" />
+
+        <button onclick="addShipmentFromForm()">Add Shipment</button>
     </div>
-</div>
 
-<script>
-updateShipmentWelcome();
-</script>
+    <!-- Option to proceed to checkout -->
+    <button onclick="proceedToCheckout(); window.location.href='checkout.html'">
+        Proceed to Checkout
+    </button>
+</main>
+
+<footer>
+    &copy; 2025 Baru. All rights reserved.
+</footer>
+
 <script src="script.js"></script>
+<script>
+    // Function to add shipment from form inputs
+    function addShipmentFromForm() {
+        const shipment = {
+            supplierName: document.getElementById('supplier-name').value,
+            phone: document.getElementById('supplier-phone').value,
+            instagram: document.getElementById('supplier-instagram').value,
+            weight: parseFloat(document.getElementById('shipment-weight').value) || 0
+        };
+
+        if (!shipment.supplierName || !shipment.phone || shipment.weight <= 0) {
+            alert('Please fill in all required fields with valid values.');
+            return;
+        }
+
+        addToCart(shipment);
+
+        // Clear form inputs
+        document.getElementById('supplier-name').value = '';
+        document.getElementById('supplier-phone').value = '';
+        document.getElementById('supplier-instagram').value = '';
+        document.getElementById('shipment-weight').value = '';
+
+        alert('Shipment added to cart!');
+    }
+</script>
 </body>
 </html>
