@@ -10,14 +10,12 @@
 </header>
 
 <div class="container premium-layout">
-    <!-- Left column: text / premium vibes -->
     <div class="premium-left">
         <h2>Welcome to Baru</h2>
         <p>Consolidate your African shipments effortlessly. Create an account to track your shipments, save addresses, and simplify international trade. Fast, secure, and professional service.</p>
         <p>Already have an account? Just log in and continue to add shipments.</p>
     </div>
 
-    <!-- Right column: login/sign-up form -->
     <div class="premium-right">
         <h2>Login / Sign Up</h2>
         <input type="text" id="name" placeholder="Full Name">
@@ -26,19 +24,6 @@
     </div>
 </div>
 
-<script>
-function saveLogin() {
-    const name = document.getElementById("name").value.trim();
-    const address = document.getElementById("address").value.trim();
-
-    if (!name || !address) {
-        alert("Please enter your name and address.");
-        return;
-    }
-
-    localStorage.setItem("user", JSON.stringify({ name, address }));
-    window.location.href = "shipments.html"; // direct to shipment page
-}
-</script>
+<script src="script.js"></script>
 </body>
 </html>
