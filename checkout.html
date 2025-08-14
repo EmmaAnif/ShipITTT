@@ -1,0 +1,42 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Baru - Checkout</title>
+    <link rel="stylesheet" href="style.css">
+</head>
+<body>
+
+<header>
+    <h1 onclick="window.location.href='index.html'">Baru</h1>
+    <nav>
+        <a href="login.html">Login / Signup</a>
+        <a href="add-shipment.html">Add Shipment</a>
+        <a href="checkout.html">Cart <span id="cart-counter">0</span></a>
+    </nav>
+</header>
+
+<main class="container">
+    <h2>Your Cart</h2>
+
+    <!-- Container where cart items will be rendered -->
+    <div id="cart-items"></div>
+
+    <!-- Estimated cost -->
+    <p><strong>Estimated Cost:</strong> <span id="estimated-cost">$0.00</span></p>
+
+    <!-- Proceed to checkout button -->
+    <button onclick="makePayment()">Make Payment</button>
+
+    <!-- Post-payment signup prompt if user not logged in -->
+    <div id="signup-prompt"></div>
+</main>
+
+<footer>
+    &copy; 2025 Baru. All rights reserved.
+</footer>
+
+<script src="script.js"></script>
+</body>
+</html>
