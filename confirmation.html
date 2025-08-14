@@ -18,11 +18,8 @@
 </div>
 
 <script>
-const user = JSON.parse(localStorage.getItem("user") || "null");
-if (!user) {
-    document.getElementById("loginReminder").innerHTML =
-        `<p>Please <a href="login.html" style="color:#00ff88">log in</a> to save your details for future shipments.</p>`;
-}
+showLoginReminder();
 </script>
+<script src="script.js"></script>
 </body>
 </html>
