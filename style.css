@@ -1,29 +1,32 @@
 /* Global Styles */
-body {
-    font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
-    background-color: #000; /* black background */
-    color: #e0e0e0;
+html, body {
+    height: 100%;
     margin: 0;
     padding: 0;
-    line-height: 1.4;
+    font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+    background-color: #000;
+    color: #e0e0e0;
 }
 
 /* Header */
 header {
-    background-color: #111; /* dark header */
-    padding: 10px 15px;
-    text-align: center;
+    background-color: #111;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    padding: 12px 0;
 }
 
 header h1 {
-    color: #00ff00; /* neon green, exactly like yesterday */
+    color: #00ff88; /* softened green */
     font-size: 1.6rem;
+    cursor: pointer;
     margin: 0;
 }
 
 /* Navigation */
 nav a {
-    color: #00ff00;
+    color: #00ff88;
     text-decoration: none;
     margin: 0 8px;
     font-size: 0.95rem;
@@ -36,37 +39,42 @@ nav a:hover {
 /* Container */
 .container {
     padding: 15px;
-    max-width: 1100px;
-    margin: auto;
+    max-width: 500px;
+    margin: 0 auto;
+    display: flex;
+    flex-direction: column;
+    justify-content: flex-start;
+    min-height: calc(100vh - 60px);
 }
 
 /* Buttons */
-button {
-    background-color: #00ff00;
+button, .link-btn {
+    background-color: #00ff88;
     color: #000;
-    padding: 10px 14px;
+    padding: 12px;
     border: none;
     border-radius: 6px;
     cursor: pointer;
-    font-size: 0.95rem;
-    margin-top: 8px;
+    font-size: 1rem;
+    margin-top: 10px;
     width: 100%;
+    text-align: center;
 }
 
-button:hover {
-    background-color: #00cc00;
+button:hover, .link-btn:hover {
+    background-color: #00cc6a;
 }
 
 /* Inputs */
 input {
     width: 100%;
-    padding: 10px;
+    padding: 12px;
     margin-top: 8px;
     border-radius: 6px;
     border: none;
     background-color: #1a1a1a;
     color: white;
-    font-size: 0.95rem;
+    font-size: 1rem;
 }
 
 /* Card Layout */
@@ -79,15 +87,15 @@ input {
 
 /* Cart Counter */
 .cart-counter {
-    background-color: #00ff00;
+    background-color: #00ff88;
     color: #000;
-    padding: 3px 7px;
+    padding: 4px 8px;
     border-radius: 50%;
     font-size: 0.8rem;
     vertical-align: super;
 }
 
-/* Two-column premium layout for login page */
+/* Premium split layout (login page) */
 .premium-layout {
     display: flex;
     flex-wrap: wrap;
@@ -101,27 +109,10 @@ input {
 
 .premium-left h2 {
     font-size: 1.8rem;
-    color: #00ff00;
+    color: #00ff88;
 }
 
 .premium-left p {
     margin-top: 15px;
     font-size: 1rem;
-}
-
-/* Links in buttons style */
-.link-btn {
-    display: inline-block;
-    text-align: center;
-    background-color: #00ff00;
-    color: #000;
-    padding: 10px 14px;
-    border-radius: 6px;
-    text-decoration: none;
-    width: 100%;
-    margin-top: 8px;
-}
-
-.link-btn:hover {
-    background-color: #00cc00;
 }
